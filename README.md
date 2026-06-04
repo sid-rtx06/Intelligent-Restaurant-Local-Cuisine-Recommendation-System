@@ -313,3 +313,5 @@ Built with ❤️ using AI and Machine Learning
 ---
 
 **Note**: This is a demonstration project with sample data. For production use, integrate with real restaurant APIs (Google Places, Yelp, Zomato) and use actual labeled datasets for ML training.
+#   I n t e l l i g e n t - R e s t a u r a n t - L o c a l - C u i s i n e - R e c o m m e n d a t i o n - S y s t e m  
+ 
