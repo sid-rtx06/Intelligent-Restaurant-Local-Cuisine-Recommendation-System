@@ -1,0 +1,56 @@
+Total in user list: 50
+Total in DB: 260
+
+Missing (not even fuzzy match): 0
+
+--- Full Mapping Attempt ---
+Paradise -> Paradise
+Bawarchi -> Bawarchi
+Capital -> Capital
+Nawabs -> Nawabs
+Cafe Niloufer -> Cafe Niloufer
+Mefil -> Mefil
+Blue Fox -> Blue Fox
+Hotel Nayab -> Hotel Nayab
+Chutneys -> Chutneys
+Minerva -> Minerva
+Antera -> Antera
+Telangana Spicy Kitchen -> Telangana Spicy Kitchen
+Platform 65 -> Platform 65
+Kritunga -> Kritunga
+Spice 6 -> Spice 6
+Shah Ghouse -> Shah Ghouse
+Pista House -> Pista House
+Shadab -> Shadab
+Maya Bazar -> Maya Bazar
+Exotica -> Exotica
+Hotel Kinera -> Hotel Kinera
+Haldiram’s -> Haldiram’s
+Ohri’s -> Ohri’s
+Lucky -> Lucky
+Amaravathi -> Amaravathi
+Taj Mahal -> Taj Mahal
+Meridian -> Meridian
+Cafe Bahar -> Cafe Bahar
+Chicha’s -> Chicha’s
+Royal Seema Ruchulu -> Royal Seema Ruchulu
+Shaji Ka Dhaba -> Shaji Ka Dhaba
+Peshawri -> Peshawri
+Lé Vantage Cafe and Bar -> Lé Vantage Cafe and Bar
+Haiku -> Haiku
+Seven Sisters -> Seven Sisters
+Krishnapatnam -> Krishnapatnam
+Pakka Local -> Pakka Local
+Gabru Di Chaop -> Gabru Di Chaop
+Mini Panjab -> Mini Panjab
+The Terrakota Kitchen -> The Terrakota Kitchen
+Arabian Mandi -> Arabian Mandi
+Girlfriend Mandi -> Girlfriend Mandi
+Balaji Family Dabha -> Balaji Family Dabha
+Salt & Pepper -> Salt & Pepper
+Vivaha Bhojanambu -> Vivaha Bhojanambu
+Hotel Sawagth -> Hotel Sawagth
+Golden Dragon -> Golden Dragon
+Parmpara -> Parmpara
+7 Seasons -> 7 Seasons
+The Joint Cafe Bar -> The Joint Cafe Bar

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Smart Cuisine Finder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/theme.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-brand">SMART CUISINE FINDER</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <li><a href="../index.html" class="navbar-link">Home</a></li>
+                <li><a href="home.html" class="navbar-link">Discover</a></li>
+                <li><a href="recommendations.html" class="navbar-link">Get Recommendations</a></li>
+                <li><a href="login.html" class="navbar-link active">Login</a></li>
+                <li>
+                    <button class="theme-toggle-btn" id="theme-toggle" onclick="toggleTheme()">
+                        <span class="theme-icon">☀️</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="auth-container fade-in" style="padding-top: 2rem;">
+        <div class="card auth-card" style="border: 1px solid rgba(255, 255, 255, 0.08); padding: 3rem;">
+            <h1 class="auth-title" style="margin-bottom: 2.5rem; font-family: 'Outfit', sans-serif;">Welcome <span
+                    class="text-gradient">Back</span></h1>
+
+            <div id="alert-container"></div>
+
+            <form id="login-form" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input type="email" id="email" class="form-input" placeholder="you@example.com" required
+                        style="background: rgba(255,255,255,0.03);">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Password</label>
+                    <input type="password" id="password" class="form-input" placeholder="Enter your password" required
+                        style="background: rgba(255,255,255,0.03);">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 1rem;">
+                    <span id="login-btn-text">Sign In</span>
+                    <div id="login-spinner" class="spinner"
+                        style="display: none; margin: 0 auto; width: 24px; height: 24px; border-width: 3px;"></div>
+                </button>
+            </form>
+
+            <div class="auth-link" style="margin-top: 2.5rem;">
+                Don't have an account? <a href="signup.html" style="color: var(--primary-light);">Sign up</a>
+            </div>
+
+            <div class="auth-link">
+                <a href="../index.html" style="color: var(--text-low); font-size: 0.9rem;">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const btnText = document.getElementById('login-btn-text');
+            const spinner = document.getElementById('login-spinner');
+            const alertContainer = document.getElementById('alert-container');
+
+            // Show loading
+            btnText.style.display = 'none';
+            spinner.style.display = 'block';
+            alertContainer.innerHTML = '';
+
+            try {
+                const data = await authAPI.login(email, password);
+
+                if (data && data.success) {
+                    // Store token and user data
+                    localStorage.setItem('token', data.data.access_token);
+                    localStorage.setItem('user', JSON.stringify(data.data));
+
+                    // Show success message
+                    alertContainer.innerHTML = `
+                        <div class="alert alert-success">
+                            Login successful! Redirecting...
+                        </div>
+                    `;
+
+                    // Redirect to home
+                    setTimeout(() => {
+                        window.location.href = 'home.html';
+                    }, 1000);
+                } else {
+                    alertContainer.innerHTML = `
+                        <div class="alert alert-error">
+                            ${(data && data.message) || 'Login failed. Please try again.'}
+                        </div>
+                    `;
+                    btnText.style.display = 'block';
+                    spinner.style.display = 'none';
+                }
+            } catch (error) {
+                alertContainer.innerHTML = `
+                    <div class="alert alert-error">
+                        Network error. Please check your connection and try again.
+                    </div>
+                `;
+                btnText.style.display = 'block';
+                spinner.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

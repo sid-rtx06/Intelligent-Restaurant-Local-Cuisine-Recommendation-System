@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Intelligent Restaurant Recommendation System with AI-powered fake review detection and personalized suggestions">
+    <title>Smart Cuisine Finder - AI-Powered Restaurant Recommendations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="index.html" class="navbar-brand">SMART CUISINE FINDER</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <!-- Navbar generated dynamically by auth.js -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 6rem; padding-bottom: 6rem;">
+        <div id="alert-container" style="position: fixed; top: 20px; right: 20px; z-index: 1000;"></div>
+
+        <!-- Welcome Section -->
+        <section class="text-center fade-in" style="max-width: 700px; margin: 0 auto;">
+            <img src="assets/images/logo.png.jpeg" alt="Logo" style="max-width: 200px; display: block; margin: 0 auto 1.5rem auto; border-radius: 16px;">
+            <h1 class="hero-title">
+                Welcome to <span class="text-gradient">SMART CUISINE FINDER</span>
+            </h1>
+
+            <!-- Sign Up & Login Boxes -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+
+                <!-- Sign Up Box -->
+                <a href="pages/signup.html" class="card" style="text-decoration: none; padding: 2.5rem 1.5rem; text-align: center; border: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+
+                    <h2 style="font-size: 1.3rem; color: var(--text-high); margin-bottom: 0.75rem;">Sign Up</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-med); line-height: 1.5;">Create a new account to get personalized recommendations.</p>
+                </a>
+
+                <!-- Login Box -->
+                <a href="pages/login.html" class="card" style="text-decoration: none; padding: 2.5rem 1.5rem; text-align: center; border: 1px solid rgba(255,255,255,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer;">
+
+                    <h2 style="font-size: 1.3rem; color: var(--text-high); margin-bottom: 0.75rem;">Login</h2>
+                    <p style="font-size: 0.9rem; color: var(--text-med); line-height: 1.5;">Already have an account? Sign in to continue.</p>
+                </a>
+
+            </div>
+        </section>
+
+        <style>
+            .card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 8px 30px rgba(99, 102, 241, 0.25);
+            }
+        </style>
+
+        <script src="js/api.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const user = getCurrentUser();
+                if (user) {
+                    // Hide the signup and login boxes if already logged in
+                    const boxes = document.querySelector('div[style*="display: grid"]');
+                    if (boxes) {
+                        boxes.style.display = 'none';
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

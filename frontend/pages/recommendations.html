@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations - Smart Cuisine Finder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/theme.js"></script>
+</head>
+
+<body>
+    <script src="../js/auth.js"></script>
+    <script>requireAuth();</script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-brand">SMART CUISINE FINDER</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <!-- Navbar generated dynamically by auth.js -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 4rem; padding-bottom: 6rem;">
+        <div id="alert-container"></div>
+
+        <!-- Header -->
+        <header class="results-header fade-in">
+            <div>
+                <h1 class="section-title" style="text-align: left; margin-bottom: 0.5rem;">Your <span
+                        class="text-gradient">Recommendations</span></h1>
+                <p class="results-count" id="results-count" style="color: var(--text-med);">Finding the perfect spots
+                    for you...</p>
+            </div>
+            <button onclick="window.location.href='home.html'" class="btn btn-outline">
+                <span>⚙️ Adjust Preferences</span>
+            </button>
+        </header>
+
+        <!-- Loading State -->
+        <div id="loading-state" style="text-align: center; padding: 8rem 0;">
+            <div class="spinner" style="margin: 0 auto 2rem; width: 60px; height: 60px; border-width: 5px;"></div>
+            <p style="color: var(--text-med); font-size: 1.125rem; font-weight: 500;">Analyzing your taste profile...
+            </p>
+        </div>
+
+        <!-- Results -->
+        <div id="recommendations-container" class="grid grid-2" style="display: none; margin-top: 3rem;"></div>
+
+        <!-- Empty State -->
+        <div id="empty-state" style="display: none; text-align: center; padding: 8rem 0;">
+            <div style="font-size: 5rem; margin-bottom: 2rem; filter: saturate(0.5);">🍽️</div>
+            <h3 style="margin-bottom: 1rem; font-size: 1.75rem;">No matches found</h3>
+            <p style="color: var(--text-med); margin-bottom: 3rem; max-width: 400px; margin-inline: auto;">
+                Try expanding your search radius or selecting more cuisine types.
+            </p>
+            <button onclick="window.location.href='home.html'" class="btn btn-primary btn-lg">
+                <span>Adjust Preferences</span>
+            </button>
+        </div>
+    </main>
+
+    <script src="../js/sample_data.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/location.js"></script>
+    <script src="../js/preferences.js"></script>
+    <script>
+        async function loadRecommendations() {
+            const loadingState = document.getElementById('loading-state');
+            const resultsContainer = document.getElementById('recommendations-container');
+            const emptyState = document.getElementById('empty-state');
+            const resultsCount = document.getElementById('results-count');
+            const alertContainer = document.getElementById('alert-container');
+
+            try {
+                // Get user location
+                alertContainer.innerHTML = `
+                    <div class="alert alert-info">
+                        📍 Detecting your location...
+                    </div>
+                `;
+
+                const location = await requestLocation();
+
+                // Get preferences
+                const prefs = getPreferences();
+
+                // Prepare request data
+                const requestData = {
+                    latitude: location.latitude,
+                    longitude: location.longitude,
+                    cuisine_preferences: prefs.cuisine_preferences,
+                    mood_preferences: prefs.mood_preferences,
+                    budget_min: prefs.budget_min,
+                    budget_max: prefs.budget_max,
+                    max_distance_km: prefs.preferred_distance_km,
+                    min_authenticity: prefs.min_authenticity || 0,
+                    min_rating: prefs.min_rating || 0,
+                    top_n: 50
+                };
+
+                // Check if user is authenticated
+                if (isAuthenticated()) {
+                    // Use personalized recommendations
+                    const data = await recommendationAPI.getRecommendations(requestData);
+
+                    if (data.success && data.data.recommendations.length > 0) {
+                        displayRecommendations(data.data.recommendations);
+                        resultsCount.textContent = `Found ${data.data.count} personalized recommendations`;
+                    } else {
+                        showEmptyState();
+                    }
+                } else {
+                    // Use nearby restaurants for non-authenticated users
+                    const data = await recommendationAPI.getNearby(
+                        location.latitude,
+                        location.longitude,
+                        prefs.preferred_distance_km
+                    );
+
+                    if (data.success && data.data.restaurants.length > 0) {
+                        displayRecommendations(data.data.restaurants);
+                        resultsCount.textContent = `Found ${data.data.count} nearby restaurants`;
+                        alertContainer.innerHTML = `
+                            <div class="alert alert-info">
+                                💡 <a href="login.html" style="color: var(--primary-light);">Login</a> to get personalized AI-powered recommendations!
+                            </div>
+                        `;
+                    } else {
+                        showEmptyState();
+                    }
+                }
+
+                alertContainer.innerHTML = '';
+            } catch (error) {
+                console.error('Error loading recommendations:', error);
+                alertContainer.innerHTML = `
+                    <div class="alert alert-error">
+                        Failed to load recommendations. Please try again.
+                    </div>
+                `;
+                showEmptyState();
+            }
+        }
+
+        function displayRecommendations(recommendations) {
+            const loadingState = document.getElementById('loading-state');
+            const resultsContainer = document.getElementById('recommendations-container');
+            const emptyState = document.getElementById('empty-state');
+
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'none';
+            resultsContainer.style.display = 'grid';
+
+            resultsContainer.innerHTML = recommendations.map(restaurant => `
+                <div class="card restaurant-card fade-in" onclick="viewRestaurant(${restaurant.id})">
+                    <img src="${restaurant.image_url || '../assets/images/generic_food.png'}" 
+                         alt="${restaurant.name}" 
+                         class="restaurant-card-image"
+                         onerror="this.src='../assets/images/generic_food.png'; this.onerror=null;">
+
+                    <h3 class="restaurant-card-title">${restaurant.name}</h3>
+                    <div class="restaurant-card-info">
+                        <span class="info-chip">${restaurant.cuisine_type}</span>
+                        <span class="info-chip">${formatPrice(restaurant.price_range)}</span>
+                        <span class="info-chip">📍 ${formatDistance(restaurant.distance_km)}</span>
+                        <span class="info-chip">${getStars(restaurant.review_stats?.avg_rating || 4)}</span>
+                    </div>
+                    ${restaurant.explanation ? `
+                        <p class="restaurant-card-explanation">
+                            ${restaurant.explanation}
+                        </p>
+                    ` : ''}
+                </div>
+            `).join('');
+        }
+
+        function showEmptyState() {
+            document.getElementById('loading-state').style.display = 'none';
+            document.getElementById('recommendations-container').style.display = 'none';
+            document.getElementById('empty-state').style.display = 'block';
+        }
+
+        function viewRestaurant(id) {
+            window.location.href = `restaurant-detail.html?id=${id}`;
+        }
+
+        // Load recommendations on page load
+        loadRecommendations();
+    </script>
+</body>
+
+</html>

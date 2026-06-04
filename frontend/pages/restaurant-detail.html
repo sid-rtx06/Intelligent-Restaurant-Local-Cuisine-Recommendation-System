@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Details - Smart Cuisine Finder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/theme.js"></script>
+</head>
+
+<body>
+    <script src="../js/auth.js"></script>
+    <script>requireAuth();</script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-brand">SMART CUISINE FINDER</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <!-- Navbar generated dynamically by auth.js -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container restaurant-detail fade-in" style="padding-top: 2rem; padding-bottom: 6rem;">
+        <div id="alert-container"></div>
+
+        <!-- Loading State -->
+        <div id="loading-state" style="text-align: center; padding: 8rem 0;">
+            <div class="spinner" style="margin: 0 auto 2rem; width: 60px; height: 60px; border-width: 5px;"></div>
+            <p style="color: var(--text-med); font-size: 1.125rem;">Fetching restaurant profile...</p>
+        </div>
+
+        <!-- Restaurant Details -->
+        <div id="restaurant-content" style="display: none;">
+            <button onclick="history.back()" class="btn btn-outline" style="margin-bottom: 2rem; padding: 0.5rem 1rem;">
+                <span>← Back</span>
+            </button>
+
+            <header class="restaurant-header">
+                <div
+                    style="position: relative; border-radius: 2rem; overflow: hidden; margin-bottom: 2.5rem; box-shadow: var(--shadow-lg); height: 450px;">
+                    <img id="restaurant-image" class="restaurant-image-large" alt="Restaurant"
+                        style="margin-bottom: 0; filter: brightness(0.65); height: 100%; width: 100%; object-fit: cover;">
+                    <div
+                        style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 70%);">
+                    </div>
+                    <div
+                        style="position: absolute; bottom: 3rem; left: 3rem; right: 3rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <h1 id="restaurant-name" class="restaurant-title-large"
+                                style="margin-bottom: 0.75rem; color: white; font-size: clamp(2.5rem, 6vw, 4rem); text-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                            </h1>
+                            <div class="restaurant-meta" id="restaurant-meta"
+                                style="color: rgba(255,255,255,0.95); font-size: 1.15rem; gap: 2rem;"></div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="grid grid-2" style="gap: 3rem; align-items: start;">
+                <!-- Left Column: Info & Menu -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <section class="card" style="border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <h3 style="margin-bottom: 1.25rem; font-family: 'Outfit', sans-serif;">About</h3>
+                        <p id="restaurant-description" style="color: var(--text-med); line-height: 1.8;"></p>
+                        <div style="margin-top: 1.5rem; display: grid; gap: 0.75rem;">
+                            <p style="color: var(--text-med);"><strong
+                                    style="color: var(--text-high);">Address:</strong> <span
+                                    id="restaurant-address"></span></p>
+                            <p style="color: var(--text-med);"><strong
+                                    style="color: var(--text-high);">Cuisine:</strong> <span
+                                    id="restaurant-cuisine"></span></p>
+                            <p style="color: var(--text-med);"><strong style="color: var(--text-high);">Price
+                                    Range:</strong> <span id="restaurant-price"></span></p>
+                        </div>
+                    </section>
+
+                    <section class="card" style="border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <h3 style="margin-bottom: 1.5rem; font-family: 'Outfit', sans-serif;">Review Statistics</h3>
+                        <div id="review-stats"></div>
+                    </section>
+
+                    <!-- Menu Section -->
+                    <section class="card mt-2" style="border: 1px solid rgba(255, 255, 255, 0.08);">
+                        <h3 style="margin-bottom: 2rem; font-family: 'Outfit', sans-serif;">🍽️ Premium Menu</h3>
+                        <div id="menu-container" class="grid grid-2" style="gap: 1.5rem;"></div>
+                    </section>
+                </div>
+
+                <!-- Right Column: Reviews -->
+                <aside style="display: flex; flex-direction: column; gap: 2rem;">
+                    <!-- AI Trust Dashboard -->
+                    <section class="card mb-3"
+                        style="border: 1px solid var(--accent); background: rgba(99, 102, 241, 0.03);">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4
+                                    style="color: var(--accent); margin: 0; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                    AI Authenticity Report</h4>
+                                <h2 style="margin: 0.5rem 0;" id="trust-percentage">92%</h2>
+                                <p style="font-size: 0.85rem; color: var(--text-med); margin: 0;">Genuine Reviews
+                                    Detected</p>
+                            </div>
+                            <div style="text-align: right;">
+                                <div id="trust-badge"
+                                    style="background: var(--accent); color: white; padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 700;">
+                                    High Trust
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            style="margin-top: 1rem; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden;">
+                            <div id="trust-bar"
+                                style="height: 100%; width: 92%; background: linear-gradient(90deg, var(--primary), var(--accent));">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="card" style="border: 1px solid rgba(255, 255, 255, 0.08); min-height: 400px;">
+                        <h3 style="margin-bottom: 2rem; font-family: 'Outfit', sans-serif;">Authentic Reviews</h3>
+                        <div id="reviews-container" style="display: flex; flex-direction: column; gap: 1.5rem;"></div>
+                    </section>
+                </aside>
+            </div>
+
+            <!-- Write Review (if authenticated) -->
+            <div id="write-review-section" style="display: none;" class="mt-3">
+                <div class="card card-glass">
+                    <h3 style="margin-bottom: 1rem;">Write a Review</h3>
+                    <form id="review-form">
+                        <div class="form-group">
+                            <label class="form-label">Rating</label>
+                            <div class="star-rating-input" id="star-rating-container">
+                                <!-- Stars will be rendered by JavaScript -->
+                            </div>
+                            <span id="rating-value-display" class="rating-display-value">0.0</span>
+                            <input type="hidden" id="rating" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Your Review</label>
+                            <textarea id="review-text" class="form-input" rows="4"
+                                placeholder="Share your experience..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <script src="../js/sample_data.js"></script>
+        <script src="../js/api.js"></script>
+        <script src="../js/auth.js"></script>
+        <script>
+            let currentRestaurantId = null;
+
+            async function loadRestaurantDetails() {
+                const urlParams = new URLSearchParams(window.location.search);
+                currentRestaurantId = urlParams.get('id');
+
+                if (!currentRestaurantId) {
+                    window.location.href = 'home.html';
+                    return;
+                }
+
+                try {
+                    // Load restaurant details
+                    const restaurantData = await restaurantAPI.getById(currentRestaurantId);
+
+                    if (!restaurantData.success) {
+                        throw new Error('Restaurant not found');
+                    }
+
+                    const restaurant = restaurantData.data.restaurant;
+
+                    // Display restaurant info
+                    document.getElementById('restaurant-image').src =
+                        restaurant.image_url || '../assets/images/generic_food.png';
+                    document.getElementById('restaurant-image').onerror = function() {
+                        this.src = '../assets/images/generic_food.png';
+                        this.onerror = null;
+                    };
+                    document.getElementById('restaurant-name').textContent = restaurant.name;
+                    document.getElementById('restaurant-description').textContent =
+                        restaurant.description || 'No description available.';
+                    document.getElementById('restaurant-address').textContent = restaurant.address;
+                    document.getElementById('restaurant-cuisine').textContent = restaurant.cuisine_type;
+                    document.getElementById('restaurant-price').textContent = formatPrice(restaurant.price_range);
+
+                    // Meta info
+                    const stats = restaurant.review_stats;
+                    document.getElementById('restaurant-meta').innerHTML = `
+                    <div class="meta-item">
+                        <span>⭐ ${stats.avg_rating.toFixed(1)}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>🛡️ ${(restaurant.authenticity_score * 100).toFixed(0)}% Authentic</span>
+                    </div>
+                    <div class="meta-item">
+                        <span>💬 ${stats.total_reviews} Reviews</span>
+                    </div>
+                `;
+
+                    // Populate AI Trust Dashboard
+                    const authPercent = ((restaurant.authenticity_score || 0.85) * 100).toFixed(0);
+                    document.getElementById('trust-percentage').textContent = `${authPercent}%`;
+                    document.getElementById('trust-bar').style.width = `${authPercent}%`;
+                    const trustBadge = document.getElementById('trust-badge');
+                    if (authPercent >= 90) {
+                        trustBadge.textContent = 'Elite Trust';
+                        trustBadge.style.background = 'var(--accent)';
+                    } else if (authPercent >= 75) {
+                        trustBadge.textContent = 'High Trust';
+                        trustBadge.style.background = 'var(--primary)';
+                    } else {
+                        trustBadge.textContent = 'Verified';
+                        trustBadge.style.background = 'var(--text-muted)';
+                    }
+
+                    // Review stats
+                    document.getElementById('review-stats').innerHTML = `
+                    <div class="score-breakdown">
+                        <div class="score-item">
+                            <div class="score-label">Avg Rating</div>
+                            <div class="score-value">${stats.avg_rating || '4.5'}</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Total Reviews</div>
+                            <div class="score-value">${stats.total_reviews || '120'}</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Authenticity</div>
+                            <div class="score-value">${((restaurant.authenticity_score || 0.85) * 100).toFixed(0)}%</div>
+                        </div>
+                    </div>
+                `;
+
+                    // Load Menu
+                    const menuContainer = document.getElementById('menu-container');
+                    if (restaurant.menu && restaurant.menu.length > 0) {
+                        menuContainer.innerHTML = restaurant.menu.map(item => `
+                        <div class="menu-item-card" style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <div style="display: flex; justify-content: space-between; align-items: start;">
+                                <div>
+                                    <h4 style="margin: 0;">${item.name}</h4>
+                                    <p style="color: var(--primary); font-weight: 700; margin: 0.5rem 0;">₹${item.price}</p>
+                                    ${item.is_high_protein ? '<span class="info-chip" style="font-size: 0.6rem; background: #dcfce7; color: #166534;">High Protein</span>' : ''}
+                                </div>
+                                ${item.image ? `<img src="${item.image}" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover;" onerror="this.src='../assets/images/generic_food.png'; this.onerror=null;">` : ''}
+                            </div>
+                        </div>
+                    `).join('');
+                    } else {
+                        menuContainer.innerHTML = '<p style="color: var(--text-muted);">Menu details coming soon!</p>';
+                    }
+
+                    // Load reviews
+                    await loadReviews();
+
+                    // Show write review section if authenticated
+                    if (isAuthenticated()) {
+                        document.getElementById('write-review-section').style.display = 'block';
+                        setupReviewForm();
+                    }
+
+                    // Show content
+                    document.getElementById('loading-state').style.display = 'none';
+                    document.getElementById('restaurant-content').style.display = 'block';
+
+                } catch (error) {
+                    console.error('Error loading restaurant:', error);
+                    document.getElementById('alert-container').innerHTML = `
+                    <div class="alert alert-error">
+                        Failed to load restaurant details. <a href="home.html">Go back</a>
+                    </div>
+                `;
+                }
+            }
+
+            async function loadReviews() {
+                try {
+                    const data = await restaurantAPI.getReviews(currentRestaurantId, true);
+                    const container = document.getElementById('reviews-container');
+
+                    if (data.success && data.data.reviews.length > 0) {
+                        container.innerHTML = data.data.reviews.map(review => `
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="review-author">${review.user_name || 'Anonymous User'}</span>
+                                <span class="review-rating">${getStars(review.rating)}</span>
+                            </div>
+                            <p class="review-text">${review.text}</p>
+                            ${review.sentiment ? `
+                                <div class="review-sentiment">
+                                    <strong>Sentiment:</strong> ${review.sentiment.label} 
+                                    (${(review.sentiment.polarity * 100).toFixed(0)}% polarity)
+                                    • <strong>Authenticity:</strong> ${(review.authenticity_score * 100).toFixed(0)}%
+                                </div>
+                            ` : ''}
+                        </div>
+                    `).join('');
+                    } else {
+                        container.innerHTML = '<p style="color: var(--text-muted);">No reviews yet. Be the first to review!</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading reviews:', error);
+                }
+            }
+
+            function setupReviewForm() {
+                const container = document.getElementById('star-rating-container');
+                const ratingValueDisplay = document.getElementById('rating-value-display');
+                const ratingInput = document.getElementById('rating');
+
+                // Helper to generate a star SVG (same as display but for input)
+                function renderInteractiveStars(currentRating) {
+                    container.innerHTML = '';
+                    for (let i = 1; i <= 5; i++) {
+                        const starId = `star-${i}`;
+                        const fullStars = Math.floor(currentRating);
+                        const hasHalf = (currentRating % 1) >= 0.5 && fullStars === i - 1;
+
+                        let fill = '#D1D5DB'; // Empty
+                        if (i <= fullStars) fill = '#FFD700'; // Full
+
+                        const starHtml = `
+                            <div class="star-btn-container" data-index="${i}">
+                                <div class="star-zone star-zone-left" data-value="${i - 0.5}"></div>
+                                <div class="star-zone star-zone-right" data-value="${i}"></div>
+                                <svg viewBox="0 0 24 24">
+                                    <defs>
+                                        <linearGradient id="grad-${starId}">
+                                            <stop offset="50%" stop-color="#FFD700"/>
+                                            <stop offset="50%" stop-color="#D1D5DB"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path fill="${hasHalf ? `url(#grad-${starId})` : fill}" 
+                                          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                </svg>
+                            </div>
+                        `;
+                        container.insertAdjacentHTML('beforeend', starHtml);
+                    }
+                }
+
+                renderInteractiveStars(0);
+
+                container.addEventListener('click', (e) => {
+                    const zone = e.target.closest('.star-zone');
+                    if (zone) {
+                        const val = parseFloat(zone.dataset.value);
+                        ratingInput.value = val;
+                        ratingValueDisplay.textContent = val.toFixed(1);
+                        renderInteractiveStars(val);
+                    }
+                });
+
+                // Hover effect
+                container.addEventListener('mousemove', (e) => {
+                    const zone = e.target.closest('.star-zone');
+                    if (zone) {
+                        const val = parseFloat(zone.dataset.value);
+                        // Temporarily show hover value if we want, but click is primary
+                    }
+                });
+
+                document.getElementById('review-form').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+
+                    const rating = parseFloat(ratingInput.value);
+                    const text = document.getElementById('review-text').value;
+
+                    if (!rating) {
+                        showAlert('Please select a rating', 'error');
+                        return;
+                    }
+
+                    try {
+                        const data = await reviewAPI.create(currentRestaurantId, text, rating);
+
+                        if (data.success) {
+                            showAlert('Review submitted successfully!', 'success');
+                            document.getElementById('review-form').reset();
+                            ratingInput.value = '';
+                            ratingValueDisplay.textContent = '0.0';
+                            renderInteractiveStars(0);
+                            await loadReviews();
+                            await loadRestaurantDetails();
+                        } else {
+                            showAlert(data.message, 'error');
+                        }
+                    } catch (error) {
+                        showAlert('Failed to submit review', 'error');
+                    }
+                });
+            }
+
+            // Load on page load
+            loadRestaurantDetails();
+        </script>
+</body>
+
+</html>

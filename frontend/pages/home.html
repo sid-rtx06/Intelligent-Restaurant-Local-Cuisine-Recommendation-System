@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Restaurants - Smart Cuisine Finder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <script src="../js/theme.js"></script>
+</head>
+
+<body>
+    <script src="../js/auth.js"></script>
+    <script>requireAuth();</script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="navbar-brand">SMART CUISINE FINDER</a>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu" id="navbar-menu">
+                <!-- Navbar generated dynamically by auth.js -->
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 4rem; padding-bottom: 6rem;">
+        <div id="alert-container"></div>
+
+        <!-- Header -->
+        <section class="preference-section fade-in">
+            <div class="card preference-card" style="border: 1px solid rgba(255, 255, 255, 0.08);">
+                <h2 class="section-title" style="margin-bottom: 2rem;">Set Your <span
+                        class="text-gradient">Preferences</span></h2>
+
+                <!-- Cuisine Preferences -->
+                <div class="preference-group">
+                    <label class="preference-label">Favorite Cuisines</label>
+                    <div class="scrolling-grid" id="cuisine-chips"></div>
+                </div>
+
+                <!-- Mood Preferences -->
+                <div class="preference-group">
+                    <label class="preference-label">Food Mood</label>
+                    <div class="scrolling-grid" id="mood-chips"></div>
+                </div>
+
+                <div style="margin-top: 2.5rem;">
+                    <!-- Budget -->
+                    <div class="preference-group">
+                        <label class="preference-label">Budget Range (₹)</label>
+                        <div class="budget-slider" style="padding: 1rem 0;">
+                            <input type="range" id="budget-min" class="slider" min="0" max="5000" value="0" step="100">
+                            <input type="range" id="budget-max" class="slider" min="0" max="10000" value="5000"
+                                step="100" style="margin-top: 1rem;">
+                            <div class="budget-display" style="margin-top: 1.25rem; font-family: 'Outfit', sans-serif;">
+                                <span style="color: var(--text-med);">Min: <span id="budget-min-display"
+                                        style="color: var(--primary-light); font-weight: 700;">0</span></span>
+                                <span style="color: var(--text-med);">Max: <span id="budget-max-display"
+                                        style="color: var(--primary-light); font-weight: 700;">5000</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- GPS Preference -->
+                    <div class="preference-group" style="margin-top: 1.5rem;">
+                        <label class="preference-label" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;">
+                            <span>📍 Use My Location (GPS)</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="allow-gps">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <p id="location-status" style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.5rem;">
+                            Enable to find restaurants near you
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="getRecommendations()" class="btn btn-primary btn-lg"
+                    style="width: 100%; margin-top: 3rem; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+                    <span>🎯 Get Personalized Recommendations</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Popular Restaurants -->
+        <div class="mt-4">
+            <h2 class="section-title">Popular <span class="text-gradient">Restaurants</span></h2>
+            <div id="popular-restaurants" class="grid grid-3">
+                <div class="spinner" style="margin: 2rem auto;"></div>
+            </div>
+        </div>
+        </div>
+
+        <script src="../js/sample_data.js"></script>
+        <script src="../js/api.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/location.js"></script>
+        <script src="../js/preferences.js"></script>
+        <script>
+            // Initialize preferences
+            const prefs = getPreferences();
+            let selectedCuisines = prefs.cuisine_preferences || [];
+            let selectedMoods = prefs.mood_preferences || [];
+
+
+
+            // Render cuisine items (Swiggy/Zomato style)
+            const cuisineContainer = document.getElementById('cuisine-chips');
+            CUISINES.forEach(cuisine => {
+                const item = document.createElement('div');
+                item.className = 'circle-item' + (selectedCuisines.includes(cuisine.name) ? ' active' : '');
+                item.innerHTML = `
+                    <div class="circle-img-container">
+                        <img src="${cuisine.image}" alt="${cuisine.name}" class="circle-img">
+                    </div>
+                    <div class="circle-name">${cuisine.name}</div>
+                `;
+                item.onclick = () => toggleChip(item, cuisine.name, selectedCuisines);
+                cuisineContainer.appendChild(item);
+            });
+
+            // Render mood items (Similar to cuisine but with emojis)
+            const moodContainer = document.getElementById('mood-chips');
+            MOODS.forEach(mood => {
+                const item = document.createElement('div');
+                item.className = 'circle-item' + (selectedMoods.includes(mood.name) ? ' active' : '');
+                item.innerHTML = `
+                    <div class="circle-img-container">
+                        <span class="circle-emoji">${mood.emoji}</span>
+                    </div>
+                    <div class="circle-name">${mood.name}</div>
+                `;
+                item.onclick = () => toggleChip(item, mood.name, selectedMoods);
+                moodContainer.appendChild(item);
+            });
+
+            function toggleChip(element, value, array) {
+                const index = array.indexOf(value);
+                if (index > -1) {
+                    array.splice(index, 1);
+                    element.classList.remove('active');
+                } else {
+                    array.push(value);
+                    element.classList.add('active');
+                }
+            }
+
+            // Budget sliders
+            const budgetMin = document.getElementById('budget-min');
+            const budgetMax = document.getElementById('budget-max');
+            const budgetMinDisplay = document.getElementById('budget-min-display');
+            const budgetMaxDisplay = document.getElementById('budget-max-display');
+
+            budgetMin.value = prefs.budget_min || 0;
+            budgetMax.value = prefs.budget_max || 5000;
+            budgetMinDisplay.textContent = budgetMin.value;
+            budgetMaxDisplay.textContent = budgetMax.value;
+
+            budgetMin.oninput = () => {
+                if (parseInt(budgetMin.value) > parseInt(budgetMax.value)) {
+                    budgetMin.value = budgetMax.value;
+                }
+                budgetMinDisplay.textContent = budgetMin.value;
+            };
+
+            budgetMax.oninput = () => {
+                if (parseInt(budgetMax.value) < parseInt(budgetMin.value)) {
+                    budgetMax.value = budgetMin.value;
+                }
+                budgetMaxDisplay.textContent = budgetMax.value;
+            };
+
+            // GPS Checkbox
+            const gpsCheckbox = document.getElementById('allow-gps');
+            const locationStatus = document.getElementById('location-status');
+            gpsCheckbox.checked = prefs.allow_gps || false;
+
+            if (gpsCheckbox.checked) {
+                locationStatus.textContent = "Location access enabled";
+                locationStatus.style.color = "var(--primary-light)";
+            }
+
+            gpsCheckbox.onchange = async () => {
+                if (gpsCheckbox.checked) {
+                    locationStatus.textContent = "Requesting location...";
+                    try {
+                        const loc = await requestLocation();
+                        if (loc) {
+                            locationStatus.textContent = `Location captured: ${loc.latitude.toFixed(4)}, ${loc.longitude.toFixed(4)}`;
+                            locationStatus.style.color = "var(--primary-light)";
+                        }
+                    } catch (err) {
+                        locationStatus.textContent = "Error accessing location";
+                        locationStatus.style.color = "#ff4444";
+                        gpsCheckbox.checked = false;
+                    }
+                } else {
+                    locationStatus.textContent = "Enable to find restaurants near you";
+                    locationStatus.style.color = "var(--text-muted)";
+                }
+            };
+
+
+
+            // Get recommendations
+            async function getRecommendations() {
+                // Save preferences
+                updatePreferences({
+                    cuisine_preferences: selectedCuisines,
+                    mood_preferences: selectedMoods,
+                    budget_min: parseInt(budgetMin.value),
+                    budget_max: parseInt(budgetMax.value),
+                    allow_gps: gpsCheckbox.checked,
+                    preferred_distance_km: prefs.preferred_distance_km || 10
+                });
+
+                // Redirect to recommendations page
+                window.location.href = 'recommendations.html';
+            }
+
+            // Load popular restaurants
+            async function loadPopularRestaurants() {
+                try {
+                    const data = await restaurantAPI.getPopular(6);
+                    const container = document.getElementById('popular-restaurants');
+
+                    if (data.success && data.data.restaurants.length > 0) {
+                        container.innerHTML = data.data.restaurants.map(restaurant => `
+                        <div class="card restaurant-card fade-in" onclick="viewRestaurant(${restaurant.id})">
+                            <img src="${restaurant.image_url || '../assets/images/generic_food.png'}" 
+                                 alt="${restaurant.name}" 
+                                 class="restaurant-card-image"
+                                 onerror="this.src='../assets/images/generic_food.png'; this.onerror=null;">
+                            <h3 class="restaurant-card-title">${restaurant.name}</h3>
+                            <div class="restaurant-card-info">
+                                <span class="info-chip">${restaurant.cuisine_type}</span>
+                                <span class="info-chip">${formatPrice(restaurant.price_range)}</span>
+                                <span class="info-chip">${getStars(restaurant.review_stats?.avg_rating || 4)}</span>
+                            </div>
+                        </div>
+                    `).join('');
+                    } else {
+                        container.innerHTML = '<p style="text-align: center; color: var(--text-muted);">No restaurants found</p>';
+                    }
+                } catch (error) {
+                    console.error('Error loading restaurants:', error);
+                    document.getElementById('popular-restaurants').innerHTML =
+                        '<p style="text-align: center; color: var(--text-muted);">Error loading restaurants</p>';
+                }
+            }
+
+            function viewRestaurant(id) {
+                window.location.href = `restaurant-detail.html?id=${id}`;
+            }
+
+            // Load on page load
+            loadPopularRestaurants();
+        </script>
+</body>
+
+</html>

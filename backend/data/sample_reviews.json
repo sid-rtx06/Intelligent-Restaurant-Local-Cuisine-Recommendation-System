@@ -1,0 +1,2564 @@
+[
+    {
+        "restaurant_id": 1,
+        "user_id": 27,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 61,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 37,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 1,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 95,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 67,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 1,
+        "user_id": 61,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 7,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 4,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 52,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 72,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 83,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 7,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 13,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 2,
+        "user_id": 41,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 3,
+        "user_id": 25,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 3,
+        "user_id": 57,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 3,
+        "user_id": 92,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 3,
+        "user_id": 5,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 3,
+        "user_id": 63,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 38,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 27,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 59,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 12,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 67,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 44,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 20,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 4,
+        "user_id": 75,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 5,
+        "user_id": 83,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 5,
+        "user_id": 14,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 5,
+        "user_id": 22,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 5,
+        "user_id": 57,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 5,
+        "user_id": 94,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 84,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 32,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 56,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 42,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 62,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 47,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 6,
+        "user_id": 82,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 19,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 67,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 2,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 62,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 55,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 7,
+        "user_id": 63,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 54,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 55,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 100,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 45,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 98,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 89,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 8,
+        "user_id": 21,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 85,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 22,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 40,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 1,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 32,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 54,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 59,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 13,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 22,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 9,
+        "user_id": 40,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 36,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 59,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 81,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 91,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 81,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 10,
+        "user_id": 55,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 34,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 70,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 63,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 44,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 21,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 51,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 93,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 11,
+        "user_id": 52,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 31,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 4,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 45,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 94,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 65,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 10,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 65,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 54,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 84,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 12,
+        "user_id": 27,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 8,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 73,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 14,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 27,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 85,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 86,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 67,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 35,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 66,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 13,
+        "user_id": 15,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 65,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 4,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 70,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 38,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 58,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 88,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 18,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 14,
+        "user_id": 98,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 85,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 80,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 64,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 5,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 4,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 32,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 64,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 15,
+        "user_id": 77,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 53,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 33,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 8,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 45,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 44,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 7,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 16,
+        "user_id": 32,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 2,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 33,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 92,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 75,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 6,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 17,
+        "user_id": 33,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 25,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 2,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 3,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 47,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 9,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 76,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 18,
+        "user_id": 96,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 42,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 5,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 12,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 88,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 74,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 39,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 89,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 2,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 19,
+        "user_id": 80,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 90,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 44,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 100,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 84,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 17,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 60,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 48,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 20,
+        "user_id": 88,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 27,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 35,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 22,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 64,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 42,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 53,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 4,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 21,
+        "user_id": 8,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 12,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 85,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 88,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 11,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 14,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 86,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 29,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 22,
+        "user_id": 67,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 6,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 46,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 95,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 35,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 45,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 64,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 23,
+        "user_id": 5,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 54,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 70,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 72,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 59,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 25,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 7,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 24,
+        "user_id": 99,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 55,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 46,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 66,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 69,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 61,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 16,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 25,
+        "user_id": 5,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 77,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 6,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 87,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 88,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 10,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 83,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 3,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 28,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 35,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 26,
+        "user_id": 56,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 31,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 36,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 59,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 36,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 27,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 27,
+        "user_id": 94,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 28,
+        "user_id": 32,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 28,
+        "user_id": 24,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 28,
+        "user_id": 13,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 28,
+        "user_id": 98,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 28,
+        "user_id": 65,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 29,
+        "user_id": 21,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 29,
+        "user_id": 45,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 29,
+        "user_id": 13,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 29,
+        "user_id": 64,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 29,
+        "user_id": 74,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 30,
+        "user_id": 32,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 30,
+        "user_id": 93,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 30,
+        "user_id": 2,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 30,
+        "user_id": 19,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 30,
+        "user_id": 71,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 31,
+        "user_id": 48,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 31,
+        "user_id": 25,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 31,
+        "user_id": 53,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 31,
+        "user_id": 29,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 31,
+        "user_id": 80,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 98,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 45,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 88,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 24,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 3,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 28,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 96,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 66,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 32,
+        "user_id": 42,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 56,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 45,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 11,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 36,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 57,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 33,
+        "user_id": 86,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 12,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 59,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 89,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 24,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 84,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 30,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 1,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 38,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 34,
+        "user_id": 87,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 35,
+        "user_id": 13,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 35,
+        "user_id": 6,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 35,
+        "user_id": 62,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 35,
+        "user_id": 64,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 35,
+        "user_id": 80,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 98,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 68,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 97,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 96,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 1,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 46,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 36,
+        "user_id": 21,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 52,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 30,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 88,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 70,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 59,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 87,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 75,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 51,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 37,
+        "user_id": 69,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 29,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 28,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 46,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 10,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 99,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 81,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 25,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 6,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 84,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 38,
+        "user_id": 63,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 39,
+        "user_id": 50,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 39,
+        "user_id": 66,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 39,
+        "user_id": 28,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 39,
+        "user_id": 58,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 39,
+        "user_id": 62,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 14,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 32,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 76,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 25,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 17,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 10,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 7,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 9,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 40,
+        "user_id": 28,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 58,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 79,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 75,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 88,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 32,
+        "text": "Bawarchi is the true king of biryani.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 41,
+        "user_id": 59,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 83,
+        "text": "Great value for money and large portions.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 35,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 91,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 36,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 56,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 1,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 87,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 42,
+        "user_id": 64,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 35,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 25,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 66,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 19,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 90,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 18,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 43,
+        "user_id": 33,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 96,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 48,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 94,
+        "text": "The Irani chai here is legendary.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 34,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 53,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 41,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 26,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 12,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 15,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 44,
+        "user_id": 3,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 86,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 35,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 59,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 19,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 11,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 45,
+        "user_id": 85,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 39,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 79,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 75,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 18,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 71,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 40,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 84,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 14,
+        "text": "Great value for money and large portions.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 46,
+        "user_id": 94,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 4,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 79,
+        "text": "Worst experience ever. Found a hair in my food.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 68,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 41,
+        "text": "The Irani chai here is legendary.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 49,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 33,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 47,
+        "user_id": 70,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 13,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 54,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 39,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 15,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 72,
+        "text": "Authentic Hyderabadi flavors. Highly recommended!",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 51,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 48,
+        "user_id": 74,
+        "text": "I've had better. Paradise is overrated.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 3,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 100,
+        "text": "Great value for money and large portions.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 98,
+        "text": "The best South Indian breakfast in the city.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 96,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 34,
+        "text": "A bit too spicy for my taste, but very flavorful.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 49,
+        "user_id": 21,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 63,
+        "text": "The Irani chai here is legendary.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 82,
+        "text": "The service was a bit slow, but the food made up for it.",
+        "rating": 5,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 45,
+        "text": "Absolutely amazing Biryani! The spices were perfect.",
+        "rating": 3,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 89,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 41,
+        "text": "Best place for family dinner. The kebabs are juicy.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 82,
+        "text": "The tandoori chicken was perfectly cooked.",
+        "rating": 3,
+        "is_authentic": false
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 95,
+        "text": "Loved the ambiance and the spicy mutton curry.",
+        "rating": 5,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 56,
+        "text": "Poor quality food. Not worth the price.",
+        "rating": 4,
+        "is_authentic": true
+    },
+    {
+        "restaurant_id": 50,
+        "user_id": 13,
+        "text": "Must try the Zafrani Biryani!",
+        "rating": 5,
+        "is_authentic": true
+    }
+]

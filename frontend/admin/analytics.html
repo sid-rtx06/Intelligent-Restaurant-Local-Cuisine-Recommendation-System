@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Smart Cuisine Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <div class="p-6">
+            <h2 class="text-2xl font-bold text-white"><i class="fas fa-utensils text-red-500 mr-2"></i>RTRP Admin</h2>
+        </div>
+        <nav class="mt-6">
+            <a href="index.html" class="nav-link"><i class="fas fa-tachometer-alt mr-3"></i>Dashboard</a>
+            <a href="restaurants.html" class="nav-link"><i class="fas fa-store mr-3"></i>Restaurants</a>
+            <a href="reviews.html" class="nav-link"><i class="fas fa-comments mr-3"></i>Reviews</a>
+            <a href="users.html" class="nav-link"><i class="fas fa-users mr-3"></i>Users</a>
+            <a href="analytics.html" class="nav-link active"><i class="fas fa-chart-bar mr-3"></i>Analytics</a>
+            <a href="settings.html" class="nav-link"><i class="fas fa-cog mr-3"></i>Settings</a>
+            <a href="../index.html" class="nav-link mt-8 text-red-400 hover:text-red-300"><i class="fas fa-sign-out-alt mr-3"></i>Logout</a>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <div class="flex items-center">
+                <button id="mobile-menu-btn" class="hidden text-gray-500 mr-4 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <h1 class="text-xl font-semibold">Platform Analytics</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="dark-mode-toggle" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Admin&background=ef4444&color=fff" alt="Profile" class="w-8 h-8 rounded-full">
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <div class="admin-card">
+                <h3 class="text-lg font-semibold mb-4">Monthly User Registrations</h3>
+                <div style="position: relative; height: 250px; width: 100%;">
+                    <canvas id="registrationChart"></canvas>
+                </div>
+            </div>
+            <div class="admin-card">
+                <h3 class="text-lg font-semibold mb-4">Fake Reviews Trend</h3>
+                <div style="position: relative; height: 250px; width: 100%;">
+                    <canvas id="fakeReviewsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div class="admin-card">
+                <h3 class="text-lg font-semibold mb-4">Restaurant Ratings Distribution</h3>
+                <div style="position: relative; height: 250px; width: 100%; display: flex; justify-content: center;">
+                    <canvas id="ratingsChart"></canvas>
+                </div>
+            </div>
+            <div class="admin-card">
+                <h3 class="text-lg font-semibold mb-4">Top Rated Restaurants</h3>
+                <ul class="space-y-4">
+                    <li class="flex justify-between items-center pb-2 border-b">
+                        <span class="font-medium">1. Paradise Biryani</span>
+                        <span class="text-yellow-500"><i class="fas fa-star"></i> 4.9</span>
+                    </li>
+                    <li class="flex justify-between items-center pb-2 border-b">
+                        <span class="font-medium">2. Hotel Bawarchi</span>
+                        <span class="text-yellow-500"><i class="fas fa-star"></i> 4.8</span>
+                    </li>
+                    <li class="flex justify-between items-center pb-2 border-b">
+                        <span class="font-medium">3. Spicy Venue</span>
+                        <span class="text-yellow-500"><i class="fas fa-star"></i> 4.7</span>
+                    </li>
+                    <li class="flex justify-between items-center pb-2 border-b">
+                        <span class="font-medium">4. Pista House</span>
+                        <span class="text-yellow-500"><i class="fas fa-star"></i> 4.6</span>
+                    </li>
+                    <li class="flex justify-between items-center pb-2">
+                        <span class="font-medium">5. Shah Ghouse</span>
+                        <span class="text-yellow-500"><i class="fas fa-star"></i> 4.5</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/admin.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Registrations Chart
+            new Chart(document.getElementById('registrationChart').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Registrations',
+                        data: [650, 850, 1200, 1500, 1100, 1800],
+                        backgroundColor: '#3b82f6'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Fake Reviews Chart
+            new Chart(document.getElementById('fakeReviewsChart').getContext('2d'), {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Detected Fake Reviews',
+                        data: [150, 230, 180, 320, 210, 190],
+                        borderColor: '#ef4444',
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+
+            // Ratings Distribution Chart
+            new Chart(document.getElementById('ratingsChart').getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: ['5 Stars', '4 Stars', '3 Stars', '2 Stars', '1 Star'],
+                    datasets: [{
+                        data: [45, 30, 15, 7, 3],
+                        backgroundColor: ['#10b981', '#3b82f6', '#f59e0b', '#f97316', '#ef4444']
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false }
+            });
+        });
+    </script>
+</body>
+</html>
