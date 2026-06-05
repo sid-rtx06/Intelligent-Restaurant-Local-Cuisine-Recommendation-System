@@ -12,6 +12,10 @@ def setup_mysql():
     schema_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'database', 'mysql_schema.sql')
     
     if not os.path.exists(schema_path):
+        # Fallback for container deployment where only the backend directory is present
+        schema_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mysql_schema.sql')
+        
+    if not os.path.exists(schema_path):
         print(f"Error: Schema file not found at {schema_path}")
         return False
 
