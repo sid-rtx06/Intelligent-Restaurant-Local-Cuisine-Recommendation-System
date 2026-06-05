@@ -4,8 +4,8 @@
 # Optional: If you deploy your Flask backend on Render or Railway, 
 # uncomment the redirect rule below and replace the 'to' URL with your backend's API URL.
 #
-# [[redirects]]
-#   from = "/api/*"
-#   to = "https://your-flask-backend.onrender.com/api/:splat"
-#   status = 200
-#   force = true
+[[redirects]]
+  from = "/api/*"
+  to = "https://intelligent-restaurant-local-cuisine.onrender.com/api/:splat"
+  status = 200
+  force = true
