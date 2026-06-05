@@ -15,12 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Check local storage
         if (localStorage.getItem('adminDarkMode') === 'true') {
             document.body.classList.add('dark-mode');
+            document.documentElement.classList.add('dark');
             darkModeBtn.innerHTML = '<i class="fas fa-sun"></i>';
         }
 
         darkModeBtn.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
             const isDark = document.body.classList.contains('dark-mode');
+            document.documentElement.classList.toggle('dark', isDark);
             localStorage.setItem('adminDarkMode', isDark);
             darkModeBtn.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
             

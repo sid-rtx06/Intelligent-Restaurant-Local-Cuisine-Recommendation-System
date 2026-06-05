@@ -130,3 +130,62 @@ def analyze_review(review_id):
         'authenticity_score': round(authenticity_score, 3),
         'is_authentic': is_authentic
     }, "Review re-analyzed successfully")
+
+@review_bp.route('/', methods=['GET'])
+@review_bp.route('', methods=['GET'])
+@handle_exceptions
+def get_all_reviews():
+    """Get all reviews for admin moderation"""
+    limit = int(request.args.get('limit', 100))
+    status = request.args.get('status')
+    
+    reviews = Review.find_all(limit=limit, status=status)
+    
+    for r in reviews:
+        if r.get('restaurant_id'):
+            try:
+                restaurant = Restaurant.find_by_id(r['restaurant_id'])
+                r['restaurant_name'] = restaurant['name'] if restaurant else 'Unknown'
+            except:
+                r['restaurant_name'] = 'Unknown'
+        
+        if r.get('user_id'):
+            try:
+                from models.user import User
+                user = User.find_by_id(r['user_id'])
+                r['user_name'] = user['name'] if user else 'Anonymous'
+            except:
+                r['user_name'] = 'Anonymous'
+                
+    return success_response({
+        'reviews': reviews,
+        'count': len(reviews)
+    })
+
+@review_bp.route('/<review_id>', methods=['PUT'])
+@jwt_required()
+@handle_exceptions
+def update_review_status(review_id):
+    """Update review authenticity status (admin action)"""
+    data = request.get_json()
+    is_authentic = data.get('is_authentic')
+    
+    if is_authentic is None:
+        return error_response("is_authentic is required", 400)
+        
+    success = Review.update_status(review_id, is_authentic)
+    if not success:
+        return error_response("Failed to update review status", 500)
+        
+    return success_response(message="Review status updated successfully")
+
+@review_bp.route('/<review_id>', methods=['DELETE'])
+@jwt_required()
+@handle_exceptions
+def delete_review(review_id):
+    """Delete a review (admin action)"""
+    success = Review.delete(review_id)
+    if not success:
+        return error_response("Failed to delete review", 500)
+        
+    return success_response(message="Review deleted successfully")

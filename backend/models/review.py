@@ -144,3 +144,41 @@ class Review:
             "avg_authenticity": round(avg_authenticity, 4),
             "sentiment_counts": sentiment_counts
         }
+
+    @staticmethod
+    def find_all(limit=100, status=None):
+        """Find all reviews for administration"""
+        collection = get_reviews_collection()
+        query = {}
+        if status == 'fake':
+            query['is_authentic'] = False
+        elif status == 'real':
+            query['is_authentic'] = True
+            
+        reviews = list(collection.find(query).sort('created_at', -1).limit(limit))
+        for review in reviews:
+            review['_id'] = str(review['_id'])
+        return reviews
+
+    @staticmethod
+    def delete(review_id):
+        """Delete a review by ID"""
+        collection = get_reviews_collection()
+        try:
+            result = collection.delete_one({'_id': ObjectId(review_id)})
+            return result.deleted_count > 0
+        except:
+            return False
+
+    @staticmethod
+    def update_status(review_id, is_authentic):
+        """Approve or reject a review's authenticity status"""
+        collection = get_reviews_collection()
+        try:
+            result = collection.update_one(
+                {'_id': ObjectId(review_id)},
+                {'$set': {'is_authentic': is_authentic}}
+            )
+            return result.modified_count > 0
+        except:
+            return False
