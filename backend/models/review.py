@@ -112,6 +112,7 @@ class Review:
             return {
                 "total_reviews": 0,
                 "average_rating": 0,
+                "avg_rating": 0,
                 "avg_authenticity": 0.5,
                 "sentiment_counts": {}
             }
@@ -139,6 +140,7 @@ class Review:
         return {
             "total_reviews": total_reviews,
             "average_rating": round(avg_rating, 2),
+            "avg_rating": round(avg_rating, 2),
             "avg_authenticity": round(avg_authenticity, 4),
             "sentiment_counts": sentiment_counts
         }

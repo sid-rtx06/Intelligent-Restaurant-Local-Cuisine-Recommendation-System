@@ -197,9 +197,10 @@
 
                     // Meta info
                     const stats = restaurant.review_stats;
+                    const avgRating = stats.average_rating || stats.avg_rating || 0;
                     document.getElementById('restaurant-meta').innerHTML = `
                     <div class="meta-item">
-                        <span>⭐ ${stats.avg_rating.toFixed(1)}</span>
+                        <span>⭐ ${avgRating.toFixed(1)}</span>
                     </div>
                     <div class="meta-item">
                         <span>🛡️ ${(restaurant.authenticity_score * 100).toFixed(0)}% Authentic</span>
@@ -230,7 +231,7 @@
                     <div class="score-breakdown">
                         <div class="score-item">
                             <div class="score-label">Avg Rating</div>
-                            <div class="score-value">${stats.avg_rating || '4.5'}</div>
+                            <div class="score-value">${avgRating || '4.5'}</div>
                         </div>
                         <div class="score-item">
                             <div class="score-label">Total Reviews</div>

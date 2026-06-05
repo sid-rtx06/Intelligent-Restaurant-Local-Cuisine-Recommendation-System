@@ -173,7 +173,7 @@
                         <span class="info-chip">${restaurant.cuisine_type}</span>
                         <span class="info-chip">${formatPrice(restaurant.price_range)}</span>
                         <span class="info-chip">📍 ${formatDistance(restaurant.distance_km)}</span>
-                        <span class="info-chip">${getStars(restaurant.review_stats?.avg_rating || 4)}</span>
+                        <span class="info-chip">${getStars(restaurant.review_stats?.average_rating || restaurant.review_stats?.avg_rating || 4)}</span>
                     </div>
                     ${restaurant.explanation ? `
                         <p class="restaurant-card-explanation">
