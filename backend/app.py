@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 def create_app():
     """Application factory"""
     app = Flask(__name__)
+    app.url_map.strict_slashes = False
     
     # Load configuration
     app.config.from_object(Config)

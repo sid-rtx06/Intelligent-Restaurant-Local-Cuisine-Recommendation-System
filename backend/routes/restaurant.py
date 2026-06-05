@@ -7,6 +7,7 @@ from utils.helpers import success_response, error_response, handle_exceptions, d
 restaurant_bp = Blueprint('restaurant', __name__)
 
 @restaurant_bp.route('/', methods=['GET'])
+@restaurant_bp.route('', methods=['GET'])
 @handle_exceptions
 def get_restaurants():
     """Get all restaurants with filtering and search"""

@@ -9,6 +9,7 @@ from utils.helpers import success_response, error_response, handle_exceptions
 review_bp = Blueprint('review', __name__)
 
 @review_bp.route('/', methods=['POST'])
+@review_bp.route('', methods=['POST'])
 @jwt_required()
 @handle_exceptions
 def create_review():

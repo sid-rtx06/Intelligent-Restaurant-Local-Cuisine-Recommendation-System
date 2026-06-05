@@ -112,11 +112,15 @@ class Review:
             return {
                 "total_reviews": 0,
                 "average_rating": 0,
+                "avg_authenticity": 0.5,
                 "sentiment_counts": {}
             }
 
         # Calculate average rating
         avg_rating = sum(r.get("rating", 0) for r in reviews) / total_reviews
+        
+        # Calculate average authenticity score
+        avg_authenticity = sum(r.get("authenticity_score", 0.5) for r in reviews) / total_reviews
 
         # Handle sentiment safely
         sentiments = []
@@ -135,5 +139,6 @@ class Review:
         return {
             "total_reviews": total_reviews,
             "average_rating": round(avg_rating, 2),
+            "avg_authenticity": round(avg_authenticity, 4),
             "sentiment_counts": sentiment_counts
         }

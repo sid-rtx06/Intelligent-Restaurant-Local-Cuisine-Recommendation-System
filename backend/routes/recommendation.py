@@ -8,6 +8,7 @@ from utils.helpers import success_response, error_response, handle_exceptions
 recommendation_bp = Blueprint('recommendation', __name__)
 
 @recommendation_bp.route('/', methods=['POST'])
+@recommendation_bp.route('', methods=['POST'])
 @jwt_required()
 @handle_exceptions
 def get_recommendations():
