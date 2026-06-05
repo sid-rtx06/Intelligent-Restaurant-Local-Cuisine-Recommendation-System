@@ -28,29 +28,38 @@ def setup_mysql():
         print(f"Error reading schema file: {e}")
         return False
 
+    mysql_host = os.environ.get('MYSQL_HOST') or 'localhost'
+    mysql_user = os.environ.get('MYSQL_USER') or 'root'
+    mysql_password = os.environ.get('MYSQL_PASSWORD') or 'root'
+    mysql_db = os.environ.get('MYSQL_DB') or 'restaurant_recommendation'
+    mysql_port = int(os.environ.get('MYSQL_PORT') or 3306)
+
+    conn = None
+    connected_to_db = False
+
     try:
-        # First try with credentials from config/default
-        # Note: We hardcode them here for initial setup as config.py might not be set up
+        # First try to connect to the target database directly (for environments like Aiven where database is pre-created)
         conn = pymysql.connect(
-            host='localhost',
-            user='root',
-            password='root',
+            host=mysql_host,
+            user=mysql_user,
+            password=mysql_password,
+            port=mysql_port,
+            database=mysql_db,
             cursorclass=pymysql.cursors.DictCursor
         )
-        print("[OK] Connected to MySQL server (no password)")
+        print(f"[OK] Connected directly to database: {mysql_db}")
+        connected_to_db = True
     except Exception as e:
-        print(f"[ERROR] Connection failed with no password: {e}")
-        print("Please enter your MySQL 'root' password:")
+        print(f"[INFO] Could not connect directly to database '{mysql_db}': {e}. Trying connection to root...")
         try:
-            # password = input() 
-            password = 'root' 
             conn = pymysql.connect(
-                host='localhost',
-                user='root',
-                password=password.strip(),
+                host=mysql_host,
+                user=mysql_user,
+                password=mysql_password,
+                port=mysql_port,
                 cursorclass=pymysql.cursors.DictCursor
             )
-            print("[OK] Connected to MySQL server (authentication successful)")
+            print(f"[OK] Connected to MySQL server root at {mysql_host}:{mysql_port}")
         except Exception as e2:
             print(f"[ERROR] Failed to connect to MySQL: {e2}")
             return False
@@ -59,17 +68,20 @@ def setup_mysql():
         cursor = conn.cursor()
         
         # Split commands by semicolon and execute
-        # Careful with semicolons in strings depending on complexity, but for this schema simple split is fine
         commands = schema_content.split(';')
         
         for command in commands:
             command = command.strip()
             if command:
+                # Skip CREATE DATABASE and USE commands if we are already connected directly to the database
+                # (prevents privilege errors on managed databases like Aiven)
+                if connected_to_db and (command.upper().startswith("CREATE DATABASE") or command.upper().startswith("USE ")):
+                    print(f"  Skipping database selection command: {command[:50]}...")
+                    continue
                 try:
                     cursor.execute(command)
                     print(f"  Executed: {command[:50]}...")
                 except Exception as e:
-                    # Ignore "database exists" or "table exists" warnings if desirable, but better to show
                     print(f"  Warning executing command: {e}")
         
         conn.commit()
@@ -80,7 +92,8 @@ def setup_mysql():
         print(f"\n[ERROR] Error executing schema: {e}")
         return False
     finally:
-        conn.close()
+        if conn:
+            conn.close()
 
 if __name__ == '__main__':
     success = setup_mysql()
