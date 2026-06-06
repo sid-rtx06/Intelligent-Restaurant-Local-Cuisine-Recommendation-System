@@ -94,14 +94,27 @@
     </div>
     <script src="js/admin.js"></script>
     <script>
-        const restaurants = [
-            { id: 1, name: "Paradise Biryani", location: "Secunderabad", cuisine: "Hyderabadi", rating: 4.5, status: "Active" },
-            { id: 2, name: "Hotel Bawarchi", location: "RTC X Roads", cuisine: "Hyderabadi", rating: 4.8, status: "Active" },
-            { id: 3, name: "Capital Multi Cuisine", location: "Madhapur", cuisine: "Mughlai", rating: 4.2, status: "Inactive" },
-            { id: 4, name: "Cafe Niloufer", location: "Red Hills", cuisine: "Continental", rating: 4.7, status: "Active" },
-            { id: 5, name: "Chutneys", location: "Himayatnagar", cuisine: "South Indian", rating: 4.4, status: "Active" },
-            { id: 6, name: "Mehfil", location: "Narayanguda", cuisine: "Mughlai", rating: 4.3, status: "Active" }
+        const baseRestaurants = [
+            { name: "Paradise Biryani", location: "Secunderabad", cuisine: "Hyderabadi", rating: 4.5, status: "Active" },
+            { name: "Hotel Bawarchi", location: "RTC X Roads", cuisine: "Hyderabadi", rating: 4.8, status: "Active" },
+            { name: "Capital Multi Cuisine", location: "Madhapur", cuisine: "Mughlai", rating: 4.2, status: "Inactive" },
+            { name: "Cafe Niloufer", location: "Red Hills", cuisine: "Continental", rating: 4.7, status: "Active" },
+            { name: "Chutneys", location: "Himayatnagar", cuisine: "South Indian", rating: 4.4, status: "Active" },
+            { name: "Mehfil", location: "Narayanguda", cuisine: "Mughlai", rating: 4.3, status: "Active" }
         ];
+
+        const restaurants = [];
+        for (let i = 0; i < 150; i++) {
+            const base = baseRestaurants[i % baseRestaurants.length];
+            restaurants.push({
+                id: i + 1,
+                name: `${base.name} ${Math.floor(i / baseRestaurants.length) || ''}`.trim(),
+                location: base.location,
+                cuisine: base.cuisine,
+                rating: base.rating,
+                status: base.status
+            });
+        }
 
         let currentPage = 1;
         const itemsPerPage = 3;
@@ -142,7 +155,7 @@
             
             const startEntry = filteredRestaurants.length === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
             const endEntry = Math.min(currentPage * itemsPerPage, filteredRestaurants.length);
-            countSpan.textContent = `Showing ${startEntry} to ${endEntry} of ${filteredRestaurants.length} entries`;
+            countSpan.textContent = `Showing ${startEntry.toLocaleString()} to ${endEntry.toLocaleString()} of ${filteredRestaurants.length.toLocaleString()} entries`;
 
             let paginationHtml = '';
             
@@ -150,10 +163,32 @@
             const prevDisabled = currentPage === 1 ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
             paginationHtml += `<button onclick="changePage(${currentPage - 1})" ${prevDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Prev</button>`;
 
-            // Page Numbers
-            for (let i = 1; i <= totalPages; i++) {
+            // Page Numbers (Truncated)
+            const maxPageButtons = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+            if (endPage - startPage < maxPageButtons - 1) {
+                startPage = Math.max(1, endPage - maxPageButtons + 1);
+            }
+
+            if (startPage > 1) {
+                paginationHtml += `<button onclick="changePage(1)" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">1</button>`;
+                if (startPage > 2) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
                 const activeClass = i === currentPage ? 'bg-red-500 text-white border-red-500' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
                 paginationHtml += `<button onclick="changePage(${i})" class="px-3 py-1 border rounded-md ${activeClass} transition">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+                paginationHtml += `<button onclick="changePage(${totalPages})" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">${totalPages}</button>`;
             }
 
             // Next Button

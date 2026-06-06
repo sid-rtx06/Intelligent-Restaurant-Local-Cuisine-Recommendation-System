@@ -127,9 +127,8 @@
             : '/api';
 
         let reviews = [];
-        const mockReviews = [
+        const baseReviews = [
             {
-                _id: "1",
                 user_name: "Suresh V.",
                 restaurant_name: "Paradise Biryani",
                 text: "Amazing biryani as always. The mutton was tender and flavorful.",
@@ -138,7 +137,6 @@
                 rating: 5
             },
             {
-                _id: "2",
                 user_name: "BotUser99",
                 restaurant_name: "Spicy Venue",
                 text: "Best food best place very nice I like it so much best food.",
@@ -147,7 +145,6 @@
                 rating: 5
             },
             {
-                _id: "3",
                 user_name: "Ananya T.",
                 restaurant_name: "Minerva Grand",
                 text: "Service was a bit slow but the food made up for it.",
@@ -156,6 +153,20 @@
                 rating: 3
             }
         ];
+
+        const mockReviews = [];
+        for (let i = 0; i < 1245; i++) {
+            const base = baseReviews[i % baseReviews.length];
+            mockReviews.push({
+                _id: String(i + 1),
+                user_name: `${base.user_name} ${Math.floor(i / baseReviews.length) || ''}`.trim(),
+                restaurant_name: base.restaurant_name,
+                text: base.text,
+                sentiment: base.sentiment,
+                is_authentic: base.is_authentic,
+                rating: base.rating
+            });
+        }
 
         async function fetchReviews() {
             const token = localStorage.getItem('token');
@@ -260,7 +271,7 @@
             
             const startEntry = filtered.length === 0 ? 0 : startIndex + 1;
             const endEntry = Math.min(currentPage * itemsPerPage, filtered.length);
-            document.getElementById('showing-count').textContent = `Showing ${startEntry} to ${endEntry} of ${filtered.length} entries`;
+            document.getElementById('showing-count').textContent = `Showing ${startEntry.toLocaleString()} to ${endEntry.toLocaleString()} of ${filtered.length.toLocaleString()} reviews`;
 
             updatePagination(filtered.length);
         }
@@ -275,10 +286,32 @@
             const prevDisabled = currentPage === 1 ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
             paginationHtml += `<button onclick="changePage(${currentPage - 1})" ${prevDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Prev</button>`;
 
-            // Page Numbers
-            for (let i = 1; i <= totalPages; i++) {
+            // Page Numbers (Truncated)
+            const maxPageButtons = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+            if (endPage - startPage < maxPageButtons - 1) {
+                startPage = Math.max(1, endPage - maxPageButtons + 1);
+            }
+
+            if (startPage > 1) {
+                paginationHtml += `<button onclick="changePage(1)" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">1</button>`;
+                if (startPage > 2) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
                 const activeClass = i === currentPage ? 'bg-red-500 text-white border-red-500' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
                 paginationHtml += `<button onclick="changePage(${i})" class="px-3 py-1 border rounded-md ${activeClass} transition">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+                paginationHtml += `<button onclick="changePage(${totalPages})" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">${totalPages}</button>`;
             }
 
             // Next Button

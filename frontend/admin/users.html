@@ -81,14 +81,26 @@
     </div>
     <script src="js/admin.js"></script>
     <script>
-        const users = [
-            { id: 1, name: "Rahul Sharma", email: "rahul@example.com", date: "Oct 12, 2023", status: "Active" },
-            { id: 2, name: "BotUser99", email: "bot99@spam.com", date: "Nov 05, 2023", status: "Blocked" },
-            { id: 3, name: "Priya Patel", email: "priya@example.com", date: "Jan 20, 2024", status: "Active" },
-            { id: 4, name: "Amit Kumar", email: "amit@example.com", date: "Feb 18, 2024", status: "Active" },
-            { id: 5, name: "Srujana Reddy", email: "srujana@example.com", date: "Mar 22, 2024", status: "Active" },
-            { id: 6, name: "Sneha Kapoor", email: "sneha@example.com", date: "Apr 05, 2024", status: "Blocked" }
+        const baseUsers = [
+            { name: "Rahul Sharma", email: "rahul@example.com", date: "Oct 12, 2023", status: "Active" },
+            { name: "BotUser99", email: "bot99@spam.com", date: "Nov 05, 2023", status: "Blocked" },
+            { name: "Priya Patel", email: "priya@example.com", date: "Jan 20, 2024", status: "Active" },
+            { name: "Amit Kumar", email: "amit@example.com", date: "Feb 18, 2024", status: "Active" },
+            { name: "Srujana Reddy", email: "srujana@example.com", date: "Mar 22, 2024", status: "Active" },
+            { name: "Sneha Kapoor", email: "sneha@example.com", date: "Apr 05, 2024", status: "Blocked" }
         ];
+
+        const users = [];
+        for (let i = 0; i < 12456; i++) {
+            const base = baseUsers[i % baseUsers.length];
+            users.push({
+                id: i + 1,
+                name: `${base.name} ${Math.floor(i / baseUsers.length) || ''}`.trim(),
+                email: `${base.email.split('@')[0]}${i}@${base.email.split('@')[1]}`,
+                date: base.date,
+                status: base.status
+            });
+        }
 
         let currentPage = 1;
         const itemsPerPage = 3;
@@ -134,7 +146,7 @@
             
             const startEntry = filteredUsers.length === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
             const endEntry = Math.min(currentPage * itemsPerPage, filteredUsers.length);
-            countSpan.textContent = `Showing ${startEntry} to ${endEntry} of ${filteredUsers.length} entries`;
+            countSpan.textContent = `Showing ${startEntry.toLocaleString()} to ${endEntry.toLocaleString()} of ${filteredUsers.length.toLocaleString()} entries`;
 
             let paginationHtml = '';
             
@@ -142,10 +154,32 @@
             const prevDisabled = currentPage === 1 ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
             paginationHtml += `<button onclick="changePage(${currentPage - 1})" ${prevDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Prev</button>`;
 
-            // Page Numbers
-            for (let i = 1; i <= totalPages; i++) {
+            // Page Numbers (Truncated)
+            const maxPageButtons = 5;
+            let startPage = Math.max(1, currentPage - 2);
+            let endPage = Math.min(totalPages, startPage + maxPageButtons - 1);
+
+            if (endPage - startPage < maxPageButtons - 1) {
+                startPage = Math.max(1, endPage - maxPageButtons + 1);
+            }
+
+            if (startPage > 1) {
+                paginationHtml += `<button onclick="changePage(1)" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">1</button>`;
+                if (startPage > 2) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+            }
+
+            for (let i = startPage; i <= endPage; i++) {
                 const activeClass = i === currentPage ? 'bg-red-500 text-white border-red-500' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
                 paginationHtml += `<button onclick="changePage(${i})" class="px-3 py-1 border rounded-md ${activeClass} transition">${i}</button>`;
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) {
+                    paginationHtml += `<span class="px-2 py-1 text-gray-500">...</span>`;
+                }
+                paginationHtml += `<button onclick="changePage(${totalPages})" class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">${totalPages}</button>`;
             }
 
             // Next Button
