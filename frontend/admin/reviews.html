@@ -113,11 +113,9 @@
             </div>
             
             <div class="flex justify-between items-center mt-6">
-                <span id="showing-count" class="text-sm text-gray-500">Showing 1 to 3 of 1,245 flagged</span>
-                <div class="flex space-x-1">
-                    <button class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Prev</button>
-                    <button class="px-3 py-1 border rounded-md bg-red-500 text-white">1</button>
-                    <button class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Next</button>
+                <span id="showing-count" class="text-sm text-gray-500">Showing 1 to 3 of 6 entries</span>
+                <div class="flex space-x-1" id="pagination-controls">
+                    <!-- Pagination rendered dynamically -->
                 </div>
             </div>
         </div>
@@ -195,6 +193,9 @@
             renderTable();
         }
 
+        let currentPage = 1;
+        const itemsPerPage = 3;
+
         function renderTable() {
             const tbody = document.getElementById('reviews-tbody');
             const searchVal = document.getElementById('search-input').value.toLowerCase();
@@ -216,7 +217,19 @@
                 return matchesSearch && matchesStatus;
             });
             
-            tbody.innerHTML = filtered.map(r => {
+            const totalPages = Math.ceil(filtered.length / itemsPerPage) || 1;
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+            }
+            if (currentPage < 1) {
+                currentPage = 1;
+            }
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageReviews = filtered.slice(startIndex, endIndex);
+            
+            tbody.innerHTML = pageReviews.map(r => {
                 const isFake = !r.is_authentic;
                 const rowClass = isFake ? 'bg-red-50 dark:bg-red-900 dark:bg-opacity-20' : '';
                 const badgeClass = isFake ? 'badge-danger' : 'badge-success';
@@ -245,7 +258,39 @@
                 `;
             }).join('');
             
-            document.getElementById('showing-count').textContent = `Showing 1 to ${filtered.length} of ${reviews.length} reviews`;
+            const startEntry = filtered.length === 0 ? 0 : startIndex + 1;
+            const endEntry = Math.min(currentPage * itemsPerPage, filtered.length);
+            document.getElementById('showing-count').textContent = `Showing ${startEntry} to ${endEntry} of ${filtered.length} entries`;
+
+            updatePagination(filtered.length);
+        }
+
+        function updatePagination(totalFilteredItems) {
+            const totalPages = Math.ceil(totalFilteredItems / itemsPerPage) || 1;
+            const controls = document.getElementById('pagination-controls');
+            
+            let paginationHtml = '';
+            
+            // Prev Button
+            const prevDisabled = currentPage === 1 ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
+            paginationHtml += `<button onclick="changePage(${currentPage - 1})" ${prevDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Prev</button>`;
+
+            // Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = i === currentPage ? 'bg-red-500 text-white border-red-500' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
+                paginationHtml += `<button onclick="changePage(${i})" class="px-3 py-1 border rounded-md ${activeClass} transition">${i}</button>`;
+            }
+
+            // Next Button
+            const nextDisabled = currentPage === totalPages ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
+            paginationHtml += `<button onclick="changePage(${currentPage + 1})" ${nextDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Next</button>`;
+
+            controls.innerHTML = paginationHtml;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderTable();
         }
 
         async function moderateReview(id, isAuthentic) {
@@ -293,18 +338,24 @@
             }
         }
 
-        document.getElementById('search-input').addEventListener('input', renderTable);
+        document.getElementById('search-input').addEventListener('input', () => {
+            currentPage = 1;
+            renderTable();
+        });
         document.getElementById('status-filter').addEventListener('change', () => {
+            currentPage = 1;
             fetchReviews();
         });
         document.getElementById('btn-view-all').addEventListener('click', () => {
             document.getElementById('status-filter').value = '';
             document.getElementById('search-input').value = '';
+            currentPage = 1;
             fetchReviews();
         });
         document.getElementById('btn-view-fake').addEventListener('click', () => {
             document.getElementById('status-filter').value = 'fake';
             document.getElementById('search-input').value = '';
+            currentPage = 1;
             fetchReviews();
         });
 

@@ -50,7 +50,7 @@
         <div class="admin-card">
             <div class="flex flex-col md:flex-row justify-between items-center mb-6 space-y-4 md:space-y-0">
                 <div class="flex space-x-4 w-full md:w-auto">
-                    <input type="text" placeholder="Search user by name or email..." class="border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-red-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
+                    <input type="text" id="search-input" placeholder="Search user by name or email..." class="border border-gray-300 dark:border-gray-700 rounded-md px-4 py-2 w-full md:w-80 focus:outline-none focus:ring-2 focus:ring-red-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100">
                 </div>
             </div>
 
@@ -65,61 +65,132 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td class="font-medium flex items-center">
-                                <img src="https://ui-avatars.com/api/?name=Rahul+S&background=random" class="w-8 h-8 rounded-full mr-3">
-                                Rahul Sharma
-                            </td>
-                            <td>rahul@example.com</td>
-                            <td>Oct 12, 2023</td>
-                            <td><span class="badge badge-success">Active</span></td>
-                            <td>
-                                <button class="text-yellow-500 hover:text-yellow-700 mr-2" title="Block User"><i class="fas fa-ban"></i></button>
-                                <button class="text-red-500 hover:text-red-700" title="Delete User"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="font-medium flex items-center">
-                                <img src="https://ui-avatars.com/api/?name=Bot+User&background=random" class="w-8 h-8 rounded-full mr-3 grayscale">
-                                BotUser99
-                            </td>
-                            <td>bot99@spam.com</td>
-                            <td>Nov 05, 2023</td>
-                            <td><span class="badge badge-danger">Blocked</span></td>
-                            <td>
-                                <button class="text-green-500 hover:text-green-700 mr-2" title="Unblock User"><i class="fas fa-unlock"></i></button>
-                                <button class="text-red-500 hover:text-red-700" title="Delete User"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="font-medium flex items-center">
-                                <img src="https://ui-avatars.com/api/?name=Priya+P&background=random" class="w-8 h-8 rounded-full mr-3">
-                                Priya Patel
-                            </td>
-                            <td>priya@example.com</td>
-                            <td>Jan 20, 2024</td>
-                            <td><span class="badge badge-success">Active</span></td>
-                            <td>
-                                <button class="text-yellow-500 hover:text-yellow-700 mr-2" title="Block User"><i class="fas fa-ban"></i></button>
-                                <button class="text-red-500 hover:text-red-700" title="Delete User"><i class="fas fa-trash"></i></button>
-                            </td>
-                        </tr>
+                    <tbody id="users-tbody">
+                        <!-- Users rendered dynamically -->
                     </tbody>
                 </table>
             </div>
             
             <div class="flex justify-between items-center mt-6">
-                <span class="text-sm text-gray-500">Showing 1 to 3 of 12,456 entries</span>
-                <div class="flex space-x-1">
-                    <button class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Prev</button>
-                    <button class="px-3 py-1 border rounded-md bg-red-500 text-white">1</button>
-                    <button class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">2</button>
-                    <button class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Next</button>
+                <span id="showing-count" class="text-sm text-gray-500">Showing 1 to 3 of 6 entries</span>
+                <div class="flex space-x-1" id="pagination-controls">
+                    <!-- Pagination rendered dynamically -->
                 </div>
             </div>
         </div>
     </div>
     <script src="js/admin.js"></script>
+    <script>
+        const users = [
+            { id: 1, name: "Rahul Sharma", email: "rahul@example.com", date: "Oct 12, 2023", status: "Active" },
+            { id: 2, name: "BotUser99", email: "bot99@spam.com", date: "Nov 05, 2023", status: "Blocked" },
+            { id: 3, name: "Priya Patel", email: "priya@example.com", date: "Jan 20, 2024", status: "Active" },
+            { id: 4, name: "Amit Kumar", email: "amit@example.com", date: "Feb 18, 2024", status: "Active" },
+            { id: 5, name: "Srujana Reddy", email: "srujana@example.com", date: "Mar 22, 2024", status: "Active" },
+            { id: 6, name: "Sneha Kapoor", email: "sneha@example.com", date: "Apr 05, 2024", status: "Blocked" }
+        ];
+
+        let currentPage = 1;
+        const itemsPerPage = 3;
+        let filteredUsers = [...users];
+
+        function renderUsers() {
+            const tbody = document.getElementById('users-tbody');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageUsers = filteredUsers.slice(startIndex, endIndex);
+
+            tbody.innerHTML = pageUsers.map(u => {
+                const isActive = u.status === 'Active';
+                const badgeClass = isActive ? 'badge-success' : 'badge-danger';
+                const actionBtn = isActive 
+                    ? `<button onclick="toggleUserStatus(${u.id})" class="text-yellow-500 hover:text-yellow-700 mr-2" title="Block User"><i class="fas fa-ban"></i></button>`
+                    : `<button onclick="toggleUserStatus(${u.id})" class="text-green-500 hover:text-green-700 mr-2" title="Unblock User"><i class="fas fa-unlock"></i></button>`;
+                
+                return `
+                    <tr>
+                        <td class="font-medium flex items-center">
+                            <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(u.name)}&background=random" class="w-8 h-8 rounded-full mr-3 ${isActive ? '' : 'grayscale'}">
+                            ${u.name}
+                        </td>
+                        <td>${u.email}</td>
+                        <td>${u.date}</td>
+                        <td><span class="badge ${badgeClass}">${u.status}</span></td>
+                        <td>
+                            ${actionBtn}
+                            <button onclick="deleteUser(${u.id})" class="text-red-500 hover:text-red-700" title="Delete User"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(filteredUsers.length / itemsPerPage) || 1;
+            const controls = document.getElementById('pagination-controls');
+            const countSpan = document.getElementById('showing-count');
+            
+            const startEntry = filteredUsers.length === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1;
+            const endEntry = Math.min(currentPage * itemsPerPage, filteredUsers.length);
+            countSpan.textContent = `Showing ${startEntry} to ${endEntry} of ${filteredUsers.length} entries`;
+
+            let paginationHtml = '';
+            
+            // Prev Button
+            const prevDisabled = currentPage === 1 ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
+            paginationHtml += `<button onclick="changePage(${currentPage - 1})" ${prevDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Prev</button>`;
+
+            // Page Numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const activeClass = i === currentPage ? 'bg-red-500 text-white border-red-500' : 'hover:bg-gray-100 dark:hover:bg-gray-800';
+                paginationHtml += `<button onclick="changePage(${i})" class="px-3 py-1 border rounded-md ${activeClass} transition">${i}</button>`;
+            }
+
+            // Next Button
+            const nextDisabled = currentPage === totalPages ? 'disabled style="opacity: 0.5; cursor: not-allowed;"' : '';
+            paginationHtml += `<button onclick="changePage(${currentPage + 1})" ${nextDisabled} class="px-3 py-1 border rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition">Next</button>`;
+
+            controls.innerHTML = paginationHtml;
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            renderUsers();
+        }
+
+        function toggleUserStatus(id) {
+            const user = users.find(u => u.id === id);
+            if (user) {
+                user.status = user.status === 'Active' ? 'Blocked' : 'Active';
+                renderUsers();
+            }
+        }
+
+        function deleteUser(id) {
+            if (!confirm("Are you sure you want to delete this user?")) return;
+            const index = users.findIndex(u => u.id === id);
+            if (index !== -1) {
+                users.splice(index, 1);
+                filterUsers();
+            }
+        }
+
+        function filterUsers() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            filteredUsers = users.filter(u => 
+                u.name.toLowerCase().includes(query) || 
+                u.email.toLowerCase().includes(query)
+            );
+            currentPage = 1;
+            renderUsers();
+        }
+
+        document.getElementById('search-input').addEventListener('input', filterUsers);
+
+        // Initial render
+        renderUsers();
+    </script>
 </body>
 </html>
