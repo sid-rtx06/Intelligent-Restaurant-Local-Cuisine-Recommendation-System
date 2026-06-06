@@ -271,7 +271,7 @@
             
             const startEntry = filtered.length === 0 ? 0 : startIndex + 1;
             const endEntry = Math.min(currentPage * itemsPerPage, filtered.length);
-            document.getElementById('showing-count').textContent = `Showing ${startEntry.toLocaleString()} to ${endEntry.toLocaleString()} of ${filtered.length.toLocaleString()} reviews`;
+            document.getElementById('showing-count').textContent = `Showing ${startEntry.toLocaleString()} to ${endEntry.toLocaleString()} of ${filtered.length.toLocaleString()} flagged`;
 
             updatePagination(filtered.length);
         }
