@@ -127,44 +127,91 @@
             : '/api';
 
         let reviews = [];
-        const baseReviews = [
-            {
-                user_name: "Suresh V.",
-                restaurant_name: "Paradise Biryani",
-                text: "Amazing biryani as always. The mutton was tender and flavorful.",
-                sentiment: { label: "positive" },
-                is_authentic: true,
-                rating: 5
-            },
-            {
-                user_name: "BotUser99",
-                restaurant_name: "Spicy Venue",
-                text: "Best food best place very nice I like it so much best food.",
-                sentiment: { label: "positive" },
-                is_authentic: false,
-                rating: 5
-            },
-            {
-                user_name: "Ananya T.",
-                restaurant_name: "Minerva Grand",
-                text: "Service was a bit slow but the food made up for it.",
-                sentiment: { label: "neutral" },
-                is_authentic: true,
-                rating: 3
-            }
+        const firstNames = ["Suresh", "Rahul", "Ananya", "Amit", "Priya", "Vikram", "Neha", "Rohan", "Sneha", "Karan", "Divya", "Rajesh", "Shalini", "Arjun", "Kavya", "Manish", "Swati", "Sanjay", "Meera", "Abhishek"];
+        const lastInitials = ["V.", "S.", "T.", "K.", "P.", "M.", "G.", "R.", "J.", "N.", "D.", "A.", "B.", "C.", "L.", "H.", "Y.", "W.", "Z.", "F."];
+        const restaurantsList = ["Paradise Biryani", "Spicy Venue", "Minerva Grand", "Hotel Bawarchi", "Capital Multi Cuisine", "Cafe Niloufer", "Chutneys", "Mehfil", "Shah Ghouse", "Pista House", "Aangan", "Absolute Barbecues", "Ohri's", "Barbeque Nation", "Cream Stone", "Olive Bistro", "The Glass House", "Platform 65", "Gourmet Couch", "Tatva"];
+
+        const positiveTexts = [
+            "Amazing biryani as always. The mutton was tender and flavorful.",
+            "Best food best place very nice I like it so much.",
+            "The service was top-notch, and the butter chicken was outstanding.",
+            "Fantastic ambience and authentic local flavors. Highly recommended!",
+            "Their double ka meetha is to die for. A must-visit place!",
+            "Incredible experience! The staff was polite and food was served hot.",
+            "Super tasty street-style food in a hygienic setting.",
+            "Outstanding hospitality. The kebabs were succulent and perfectly spiced."
+        ];
+
+        const neutralTexts = [
+            "Service was a bit slow but the food made up for it.",
+            "Decent place with average tasting dishes. Nothing extraordinary.",
+            "Food was okay, but the prices are a bit on the higher side.",
+            "Good seating arrangement, but they need to improve their dessert menu.",
+            "Decent biryani, but I have had better elsewhere in the city."
+        ];
+
+        const negativeTexts = [
+            "Extremely disappointed with the quality. The chicken was undercooked.",
+            "The food was too oily and salty. Would not recommend.",
+            "Terrible service. We had to wait for 45 minutes just to get water.",
+            "Overpriced and overrated. The taste was very bland.",
+            "The staff was rude and the cleanliness was questionable.",
+            "The soup was served cold and the main course took forever."
         ];
 
         const mockReviews = [];
         for (let i = 0; i < 1245; i++) {
-            const base = baseReviews[i % baseReviews.length];
+            // About 15% of reviews are fake-flagged spam reviews
+            const isFake = (i % 7 === 1);
+            
+            let userName = '';
+            let text = '';
+            let sentiment = 'neutral';
+            let rating = 3;
+            
+            if (isFake) {
+                userName = `BotUser${i || 99}`;
+                const spamTexts = [
+                    "Best food best place very nice I like it so much best food.",
+                    "Buy cheap followers now! Cheap rates fast delivery visit site.",
+                    "FREE COUPONS CLICK HERE NOW discount code promo.",
+                    "Spam review test 123 best service ever check out link.",
+                    "Great deal very cheap affordable prices visit my page."
+                ];
+                text = spamTexts[i % spamTexts.length];
+                sentiment = 'positive';
+                rating = 5;
+            } else {
+                const fName = firstNames[i % firstNames.length];
+                const lInit = lastInitials[(i * 7) % lastInitials.length];
+                userName = `${fName} ${lInit}`;
+                
+                const textType = i % 3; // 0: positive, 1: neutral, 2: negative
+                if (textType === 0) {
+                    text = positiveTexts[i % positiveTexts.length];
+                    sentiment = 'positive';
+                    rating = 4 + (i % 2);
+                } else if (textType === 1) {
+                    text = neutralTexts[i % neutralTexts.length];
+                    sentiment = 'neutral';
+                    rating = 3;
+                } else {
+                    text = negativeTexts[i % negativeTexts.length];
+                    sentiment = 'negative';
+                    rating = 1 + (i % 2);
+                }
+            }
+            
+            const restaurant = restaurantsList[(i * 3) % restaurantsList.length];
+            
             mockReviews.push({
                 _id: String(i + 1),
-                user_name: `${base.user_name} ${Math.floor(i / baseReviews.length) || ''}`.trim(),
-                restaurant_name: base.restaurant_name,
-                text: base.text,
-                sentiment: base.sentiment,
-                is_authentic: base.is_authentic,
-                rating: base.rating
+                user_name: userName,
+                restaurant_name: restaurant,
+                text: text,
+                sentiment: { label: sentiment },
+                is_authentic: !isFake,
+                rating: rating
             });
         }
 
